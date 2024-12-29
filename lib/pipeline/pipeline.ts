@@ -92,7 +92,7 @@ export class PipelineStack extends Stack {
         new codepipeline_actions.CloudFormationCreateUpdateStackAction({
           actionName: 'Deploy_CDK',
           stackName: 'TicTacToeBackendCdk',
-          templatePath: buildArtifact.atPath('TicTacToePipeline.template.json'),
+          templatePath: buildArtifact.atPath('TicTacToeBackendCdkStack.template.json'),
           adminPermissions: true,
         }),
       ],
