@@ -1,16 +1,13 @@
 import * as cdk from 'aws-cdk-lib';
 import { Construct } from 'constructs';
-// import * as sqs from 'aws-cdk-lib/aws-sqs';
+import { PipelineStack } from './pipeline/pipeline';
+import { S3TestBucketStack } from './s3/s3_test_stack';
 
 export class TicTacToeBackendCdkStack extends cdk.Stack {
   constructor(scope: Construct, id: string, props?: cdk.StackProps) {
     super(scope, id, props);
 
-    // The code that defines your stack goes here
-
-    // example resource
-    // const queue = new sqs.Queue(this, 'TicTacToeBackendCdkQueue', {
-    //   visibilityTimeout: cdk.Duration.seconds(300)
-    // });
+    const pipelineStack = new PipelineStack(this, 'TicTacToePipeline');
+    const s3TestBucketStack = new S3TestBucketStack(this, 'S3TestBucketStack')
   }
 }
