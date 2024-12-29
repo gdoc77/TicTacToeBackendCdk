@@ -8,6 +8,6 @@ export class TicTacToeBackendCdkStack extends cdk.Stack {
     super(scope, id, props);
 
     const pipelineStack = new PipelineStack(this, 'TicTacToePipeline');
-    const s3TestBucketStack = new S3TestBucketStack(this, 'S3TestBucketStack')
+    const s3TestBucketStack = new S3TestBucketStack(this, 'S3TestBucketStack');
   }
 }

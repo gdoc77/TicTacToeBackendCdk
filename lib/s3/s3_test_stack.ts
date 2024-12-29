@@ -8,7 +8,7 @@ export class S3TestBucketStack extends cdk.Stack {
 
     // Create an S3 Bucket
     new s3.Bucket(this, 'MyTestBucket', {
-      bucketName: 'my-test-bucket-cdk', // Customize or remove for a unique name
+      bucketName: 'my-test-bucket-cdk-test', // Customize or remove for a unique name
       versioned: true, // Enable versioning
       publicReadAccess: false, // Disable public access
       removalPolicy: cdk.RemovalPolicy.DESTROY, // Automatically delete during stack removal
