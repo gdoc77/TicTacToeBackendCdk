@@ -73,7 +73,7 @@ export class PipelineStack extends Stack {
     });
 
     // Build Stage
-    /*pipeline.addStage({
+    pipeline.addStage({
       stageName: 'Build',
       actions: [
         new codepipeline_actions.CodeBuildAction({
@@ -84,7 +84,7 @@ export class PipelineStack extends Stack {
         }),
       ],
     });
-
+/*
     // Deploy Stage
     pipeline.addStage({
       stageName: 'Deploy',
