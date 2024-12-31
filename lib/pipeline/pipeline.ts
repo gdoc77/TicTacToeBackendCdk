@@ -74,15 +74,28 @@ export class PipelineStack extends Stack {
 
     // Build Stage
     pipeline.addStage({
-      stageName: 'Build',
-      actions: [
-        new codepipeline_actions.CodeBuildAction({
-          actionName: 'Build_CDK',
-          project: cdkBuildProject,
-          input: sourceArtifact,
-          outputs: [buildArtifact],
-        }),
-      ],
+        stageName: 'Build',
+        actions: [
+            new codepipeline_actions.CodeBuildAction({
+                actionName: 'Deploy_Pipeline',
+                project: cdkBuildProject,
+                input: sourceArtifact,
+                outputs: [buildArtifact],
+            }),
+        ],
+    });
+
+    // Pipeline Deploy Stage
+    pipeline.addStage({
+        stageName: 'Pipeline',
+        actions: [
+            new codepipeline_actions.CloudFormationCreateUpdateStackAction({
+                actionName: 'Deploy_Pipeline',
+                stackName: 'PipelineStack',
+                templatePath: buildArtifact.atPath('PipelineStack.template.json'),
+                adminPermissions: true,
+            }),
+        ],
     });
 /*
     // Deploy Stage
