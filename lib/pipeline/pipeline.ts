@@ -97,7 +97,7 @@ export class PipelineStack extends Stack {
             }),
         ],
     });
-/*
+
     // Deploy Stage
     pipeline.addStage({
       stageName: 'Deploy',
@@ -109,6 +109,6 @@ export class PipelineStack extends Stack {
           adminPermissions: true,
         }),
       ],
-    });*/
+    });
   }
 }
