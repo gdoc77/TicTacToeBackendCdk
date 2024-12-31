@@ -7,7 +7,6 @@ export class TicTacToeBackendCdkStack extends Stack {
   constructor(scope: Construct, id: string, props?: StackProps) {
     super(scope, id, props);
 
-    const pipelineStack = new PipelineStack(this, 'TicTacToePipeline');
     const s3TestBucketStack = new S3TestBucketStack(this, 'S3TestBucketStack');
   }
 }
